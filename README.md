@@ -36,26 +36,11 @@ end
 sudo apt install nfdump
 ```
 
-### Create a systemd service to persist nfcapd across reboots:
+### Create a cronjob to persist nfcapd across reboots:
 
-**Path:** `/etc/systemd/system/nfcapd.service`
+**Path:** ``
 ```ini
-[Unit]
-Description=NetFlow Collector Daemon
-After=network.target
-
-[Service]
-ExecStart=/usr/bin/nfcapd -D -w /var/log/netflow -p 2055 -e -t 300
-Restart=always
-
-[Install]
-WantedBy=multi-user.target
-```
-
-```bash
-sudo systemctl daemon-reexec
-sudo systemctl daemon-reload
-sudo systemctl enable --now nfcapd.service
+@reboot sudo /usr/bin/nfcapd -D -w /var/log/netflow -p 2055 -e -t 300
 ```
 
 - Listens on UDP 2055
