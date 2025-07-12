@@ -45,7 +45,7 @@ Description=NetFlow Collector Daemon
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/nfcapd -D -l /var/log/netflow -p 2055 -e -t 300
+ExecStart=/usr/bin/nfcapd -D -w /var/log/netflow -p 2055 -n 1 -e -t 300
 Restart=always
 
 [Install]
