@@ -148,7 +148,15 @@ TRUNCATE = 999999
 TIME_PREFIX = "t_first":"
 TIME_FORMAT = %Y-%m-%dT%H:%M:%S
 TRANSFORMS-add_tags = add_netflow_tags
-EVAL.tag = "netflow,flow,network"
+EVAL-tag = "netflow,flow,network"
+
+# CIM field mappings
+FIELDALIAS-src_ip = src4_addr AS src
+FIELDALIAS-dest_ip = dst4_addr AS dest
+FIELDALIAS-bytes_in = in_bytes AS bytes_in
+FIELDALIAS-packets_in = in_packets AS packets_in
+EVAL-protocol = case(proto=6, "tcp", proto=17, "udp", proto=1, "icmp", true(), "other")
+
 ```
 
 ### `transforms.conf`
