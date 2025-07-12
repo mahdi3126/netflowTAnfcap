@@ -39,7 +39,7 @@ sudo apt install nfdump
 ### Create a cronjob to persist nfcapd across reboots:
 
 **Path:** ``
-```ini
+```
 @reboot sudo /usr/bin/nfcapd -D -w /var/log/netflow -p 2055 -e -t 300
 ```
 
