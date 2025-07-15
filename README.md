@@ -162,7 +162,7 @@ EVAL-protocol = case(proto=6, "tcp", proto=17, "udp", proto=1, "icmp", true(), "
 ```ini
 [add_netflow_tags]
 REGEX = .
-FORMAT = tag::network=netflow tag::communication=flow tag::direction=unknown
+FORMAT = tag::network=netflow tag::communicate=flow tag::direction=unknown
 DEST_KEY = MetaData:Tag
 ```
 
@@ -170,14 +170,14 @@ DEST_KEY = MetaData:Tag
 ```ini
 [netflow_event]
 search = sourcetype=netflow_json
-tags = netflow communication flow
+tags = netflow communicate flow
 ```
 
 ### `tags.conf`
 ```ini
 [eventtype=netflow_event]
 netflow = enabled
-communication = enabled
+communicate = enabled
 flow = enabled
 ```
 
