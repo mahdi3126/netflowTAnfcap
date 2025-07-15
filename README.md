@@ -170,7 +170,7 @@ DEST_KEY = MetaData:Tag
 ```ini
 [netflow_event]
 search = sourcetype=netflow_json
-tags = netflow communicate flow
+tags = netflow communicate flow network
 ```
 
 ### `tags.conf`
@@ -179,6 +179,7 @@ tags = netflow communicate flow
 netflow = enabled
 communicate = enabled
 flow = enabled
+network = enabled
 ```
 
 ### `metadata/default.meta`
