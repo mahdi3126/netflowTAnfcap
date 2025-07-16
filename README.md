@@ -147,7 +147,6 @@ TRUNCATE = 999999
 TIME_PREFIX = "t_first":"
 TIME_FORMAT = %Y-%m-%dT%H:%M:%S
 TRANSFORMS-add_tags = add_netflow_tags
-EVAL-tag = "netflow,flow,network"
 
 # CIM field mappings
 FIELDALIAS-src_ip = src4_addr AS src
@@ -162,7 +161,7 @@ EVAL-protocol = case(proto=6, "tcp", proto=17, "udp", proto=1, "icmp", true(), "
 ```ini
 [add_netflow_tags]
 REGEX = .
-FORMAT = tag::network=netflow tag::communicate=flow tag::direction=unknown
+FORMAT = tag::network=network tag::communicate=flow tag::direction=unknown
 DEST_KEY = MetaData:Tag
 ```
 
