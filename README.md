@@ -39,7 +39,7 @@ sudo apt install nfdump
 ### Create a cronjob to persist nfcapd across reboots:
 
 ```cron
-@reboot sudo /usr/bin/nfcapd -D -w /var/log/netflow -p 2055 -e -t 300
+@reboot sudo /usr/local/bin/nfcapd -D -w /var/log/netflow -p 2055 -e -t 300
 ```
 
 - Listens on UDP 2055
